@@ -2,6 +2,7 @@
 <html>
 
 	<head>
+		<meta charset="utf-8">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.8/d3.min.js" type="text/JavaScript"></script>
 		<script src="https://d3js.org/d3-geo-projection.v1.min.js"></script>
 		<style>
@@ -29,24 +30,24 @@
 			}
 
 			div {
-        width: 700px;
-      }
+        			width: 700px;
+      			}
 
 			select {
-	        display: block;
-	        margin: 20px auto;
-	        width: 300px;
-	        height: 50px;
-	        padding: 5px 35px 5px 5px;
-	        font-family: "Lucida Console", "Courier New", monospace;
-	        font-size: 16px;
-	        border: 3px solid #1A98E3;
-	        border-radius: 10px;
-	        -webkit-appearance: none;
-	        -moz-appearance: none;
-	        appearance: none;
-	        background: url(arrow.svg) 100% / 15% no-repeat #EEE;
-	      }
+				display: block;
+				margin: 20px auto;
+				width: 300px;
+				height: 50px;
+				padding: 5px 35px 5px 5px;
+				font-family: "Lucida Console", "Courier New", monospace;
+				font-size: 16px;
+				border: 3px solid #1A98E3;
+				border-radius: 10px;
+				-webkit-appearance: none;
+				-moz-appearance: none;
+				appearance: none;
+				background: url(arrow.svg) 100% / 15% no-repeat #EEE;
+			}
 		</style>
 	</head>
 
@@ -69,22 +70,22 @@
 					.enter()
 					.append("path")
 					.attr("d", geoPath)
-					.attr("class", "countries")
+					.attr("class", "countries");
 
-					var select = d3.select('div')
+					var select = d3.select("div")
 					.insert("select", ":first-child")
-					.attr('class','select')
-					.on('change', onchange)
-					.selectAll('option')
+					.attr("class","select")
+					.on("change", onchange)
+					.selectAll("option")
 					.data(countries.features).enter()
-					.append('option')
+					.append("option")
 					.text(function (d) { return d.properties.name; })
 					.attr("value", function (d, i) {return i;});
 
 					function onchange() {
 						d3.selectAll("circle.centroid").remove();
 						d3.selectAll("text.tag").remove();
-						selected = d3.select('select').property('value')
+						selected = d3.select("select").property("value")
 						var thisCenter = geoPath.centroid(countries.features[selected]);
 
 						d3.select("svg")
