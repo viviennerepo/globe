@@ -85,7 +85,7 @@
 					function onchange() {
 						d3.selectAll("circle.centroid").remove();
 						d3.selectAll("text.tag").remove();
-						selected = d3.select("select").property("value")
+						selected = d3.select("select").property("value");
 						var thisCenter = geoPath.centroid(countries.features[selected]);
 
 						d3.select("svg")
@@ -93,7 +93,7 @@
 						.attr("class", "centroid")
 						.attr("r", 5)
 						.attr("cx", thisCenter[0])
-						.attr("cy", thisCenter[1])
+						.attr("cy", thisCenter[1]);
 
 						d3.select("svg")
 						.append("text")
@@ -102,7 +102,7 @@
 						.attr("x", thisCenter[0])
 						.attr("y", thisCenter[1])
 						.text(countries.features[selected].properties.name);
-					};
+					}
 				}
 
 			</script>
